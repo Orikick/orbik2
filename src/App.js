@@ -19,7 +19,7 @@ function App() {
   const [highlightedApostiles4, setHighlightedApostiles4] = useState([]);
   const [highlightedPaperwork1, sethighlightedPaperwork1] = useState([]);
   const [highlightedPaperwork2, sethighlightedPaperwork2] = useState([]);
-
+  const [highlightedDodatok, sethighlightedDodatok] = useState([]);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value.toLowerCase());
@@ -143,7 +143,16 @@ function App() {
 
     sethighlightedPaperwork2(updatedhighlightedPaperwork2);
 
+    const updatedhighlightedDodatok = rolesData.dodatok.map((item) => ({
+      id: item.id,
+      col1: highlightText(item.col1),
+      col2: highlightText(item.col2),
+      col3: highlightText(item.col3),
+      col4: highlightText(item.col4),
+      col5: highlightText(item.col5),
+    }));
 
+    sethighlightedDodatok(updatedhighlightedDodatok);
 
 
 
@@ -175,7 +184,7 @@ function App() {
 
         <div className='content'>
 
-          < Content searchTerm={searchTerm} highlightText={highlightText} highlightedApostiles1={highlightedApostiles1} highlightedApostiles2={highlightedApostiles2} highlightedApostiles3={highlightedApostiles3} highlightedApostiles4={highlightedApostiles4} highlightedRoles={highlightedRoles} highlightedPaperwork1 ={highlightedPaperwork1} highlightedPaperwork2 = {highlightedPaperwork2}/>
+          < Content searchTerm={searchTerm} highlightedDodatok={highlightedDodatok} highlightText={highlightText} highlightedApostiles1={highlightedApostiles1} highlightedApostiles2={highlightedApostiles2} highlightedApostiles3={highlightedApostiles3} highlightedApostiles4={highlightedApostiles4} highlightedRoles={highlightedRoles} highlightedPaperwork1 ={highlightedPaperwork1} highlightedPaperwork2 = {highlightedPaperwork2}/>
         </div>
       </div>
     </div>

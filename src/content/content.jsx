@@ -3,7 +3,9 @@ import RolesTable from '../tables/RolesTable'
 import ApostilesTable from '../tables/ApostilesTable'
 import Paperwork1Table from '../tables/Paperwork1Table'
 import Paperwork2Table from '../tables/Paperwork2Table'
-export const Content = ({ searchTerm, highlightText, highlightedApostiles1, highlightedApostiles2, highlightedApostiles3, highlightedApostiles4, highlightedRoles, highlightedPaperwork1, highlightedPaperwork2 }) => {
+import Dodatok from '../tables/Dodatok'
+import Chat from './chat'
+export const Content = ({ searchTerm,highlightedDodatok, highlightText, highlightedApostiles1, highlightedApostiles2, highlightedApostiles3, highlightedApostiles4, highlightedRoles, highlightedPaperwork1, highlightedPaperwork2 }) => {
 
   return (
     <div className={classes.content}>
@@ -13,16 +15,20 @@ export const Content = ({ searchTerm, highlightText, highlightedApostiles1, high
           <b>{highlightText(' Наша ціль: ')}</b>{highlightText("усувати бар'єри спілкування")}<br />
           <b>{highlightText(' Наша місія: ')}</b>{highlightText("сприяти взаєморозумінню між людьми та компаніями.")}
           <dl><b><dt>{highlightText(" Наші цінності:")}</dt> </b><dd>{highlightText("- якість — професіонали в команді, якісні товари/послуги")}</dd> <dd>{highlightText("- клієнтоорієнтованість - гнучкий підхід до клієнта")}</dd> <dd>{highlightText("- дотримання слова - конфіденційність інформації-, пунктуальність")}</dd> <dd>{highlightText("- HR -оптимізація - молоді, неординарні люди, які хочуть добитися великого в житті")}</dd></dl>
+        <div className={classes.horisontalrows}>
         <hr/>
         <hr/>
+        </div>
         </div>
 
       </div>
       <div className={classes.block} id="block2" style={{ display: searchTerm && !document.getElementById('block2').innerText.toLowerCase().includes(searchTerm) ? 'none' : 'block' }}>
         <div className={classes.title}>2.	РОЛІ ТА ОБОВ'ЯЗКИ</div>
         <RolesTable data={highlightedRoles} />
+        <div className={classes.horisontalrows}>
         <hr/>
         <hr/>
+        </div>
       </div>
       <div className={classes.block} id="block3" style={{ display: searchTerm && !document.getElementById('block3').innerText.toLowerCase().includes(searchTerm) ? 'none' : 'block' }}>
         <div className={classes.title}>3. ЗАГАЛЬНЕ</div>
@@ -63,8 +69,10 @@ export const Content = ({ searchTerm, highlightText, highlightedApostiles1, high
           <p>{highlightText("- У разі приходу будь-якого державного органу, який хоче провести перевірку - першочергово попросити представитися та надати на перевірку посвідчення і документ, який підтверджує таку перевірку. Працівник в обов'язковому порядку уважно вичитує документи та виявляє чи вони дійсні. Також викликає керівника чи повідомляє по подію. У разі відсутності керівника на офісі, просить почекати його приїзду.")}</p>
         
         </div>
+        <div className={classes.horisontalrows}>
         <hr/>
         <hr/>
+        </div>
       </div>
       <div className={classes.block} id="block4" style={{ display: searchTerm && !document.getElementById('block4').innerText.toLowerCase().includes(searchTerm) ? 'none' : 'block' }}>
         <div className={classes.title}>4.	Прийом</div>
@@ -94,29 +102,37 @@ export const Content = ({ searchTerm, highlightText, highlightedApostiles1, high
             <li>{highlightText("Всі дані (про клієнта і замовлення) потрібно вносити у CRM.")}</li>
             <li>{highlightText("Надавати максимально чітку, розгорнуту та зрозумілу відповідь клієнту при запиті ціни. Намагатися одразу визначити вартість роботи та врахувати (або повідомити) оплати за засвідчення, щоб при оплаті клієнту не видавалося, що у нас є приховані платежі чи оплата за не поінформовану послугу.")}</li>
           </ol>
-          міні чатик
+          <div className={classes.title}>ПРИКЛАД РОЗМОВИ З КЛІЄНТОМ</div>
+          <Chat></Chat>
         </div>
+        <div className={classes.horisontalrows}>
         <hr/>
         <hr/>
+        </div>
       </div>
       <div className={classes.block} id="block5" style={{ display: searchTerm && !document.getElementById('block5').innerText.toLowerCase().includes(searchTerm) ? 'none' : 'block' }}>
         <div className={classes.title}>5. Апостилі</div>
         <div id='section2' style={{ display: searchTerm && !document.getElementById('section2').innerText.toLowerCase().includes(searchTerm) ? 'none' : 'block' }}>
+        <div className={classes.title}>МІНІСТЕРСТВО ЮСТИЦІЇ</div>
           <ApostilesTable data={highlightedApostiles1} />
+          <div className={classes.title}>МІНІСТЕРСТВО ВНУТРІШНІХ СПРАВ</div>
           <ApostilesTable data={highlightedApostiles2} />
+          <div className={classes.title}>МІНІСТЕРСТВО ОСВІТИ</div>
           <ApostilesTable data={highlightedApostiles3} />
+          <div className={classes.title}>МІНІСТЕРСТВО ЗАКОРДОННИХ СПРАВ</div>
           <ApostilesTable data={highlightedApostiles4} />
         </div>
+        <div className={classes.horisontalrows}>
         <hr/>
         <hr/>
+        </div>
       </div>
 
       <div className={classes.block} id="block6" style={{ display: searchTerm && !document.getElementById('block6').innerText.toLowerCase().includes(searchTerm) ? 'none' : 'block' }}>
         <div className={classes.title}>6. ПРОЦЕС ПІДГОТОВКИ ДО ЗДАЧІ ВИКОНАНОЇ РОБОТИ</div>
         <div className={classes.text}>Ми прагнемо бути № 1
           для цього потрібно надавати якісні послуги, дотримуючись таких правил:
-          1). Узгодження з самого початку:
-          Узгоджувати всі питання з клієнтом:
+          
           <b>{highlightText("1) Узгодження з самого початку:")}</b>
           <ul>
             <li>{highlightText("ПІБ згідно закордонних чи українських документів (відповідно до мови перекладу);")}</li>
@@ -150,8 +166,12 @@ export const Content = ({ searchTerm, highlightText, highlightedApostiles1, high
             <li>{highlightText("якщо розмови неможливо уникнути (телефонує клієнт) – ставимо курсор у місце, де зараз перевіряєте чи виділяємо жовтим і відвертаємося від комп'ютера/встаємо відійти, щоб не зробити автоматичних помилок/натискань")}</li>
             <li>{highlightText("в межах перевірки одного завдання намагатися організувати свій час таким способом, щоб не відволікатися на інші завдання, а якщо вже виникло таке відволікання – записати деталі справи, яка відволікає на пізніше і продовжити перевірку (щоб не тримати відволікання в голові).")}</li>
           </ul></div>
-          <hr/>
+          <div className={classes.horisontalrows}>
+          <div className={classes.horisontalrows}>
         <hr/>
+        <hr/>
+        </div>
+        </div>
       </div>
       <div className={classes.block} id="block7" style={{ display: searchTerm && !document.getElementById('block7').innerText.toLowerCase().includes(searchTerm) ? 'none' : 'block' }}>
         <div className={classes.title}>7.	ОФОРМЛЕННЯ ПЕРЕКЛАДІВ</div>
@@ -177,8 +197,10 @@ export const Content = ({ searchTerm, highlightText, highlightedApostiles1, high
           <p className={classes.link}><a target='blank' href='http://www.duden.de/rechtschreibpruefung-online'>{highlightText("http://www.duden.de/rechtschreibpruefung-online")}</a>{highlightText(" - перевірка на граматичні помилки в німецькій мові")}</p>
          
         </div>
+        <div className={classes.horisontalrows}>
         <hr/>
         <hr/>
+        </div>
       </div>
 
       <div className={classes.block} id="block8">
@@ -196,8 +218,10 @@ export const Content = ({ searchTerm, highlightText, highlightedApostiles1, high
 
           
         </div>
+        <div className={classes.horisontalrows}>
         <hr/>
         <hr/>
+        </div>
       </div>
 
       <div className={classes.block} id="block9">
@@ -210,8 +234,10 @@ export const Content = ({ searchTerm, highlightText, highlightedApostiles1, high
           <li>{highlightText("За відсутності повного імені потрібно дізнатися його у клієнтів або ж не зберігати до отримання повної інформації.")}</li>
           </ol>
         </div>
+        <div className={classes.horisontalrows}>
         <hr/>
         <hr/>
+        </div>
       </div>
 
       <div className={classes.block} id="block10">
@@ -246,14 +272,16 @@ export const Content = ({ searchTerm, highlightText, highlightedApostiles1, high
           </ol>
        
         </div>
+        <div className={classes.horisontalrows}>
         <hr/>
         <hr/>
+        </div>
       </div>
       <div className={classes.block} id="block11">
-        <div className={classes.title}>11. </div>
+        <div className={classes.title}>11. Додаток</div>
         <div className={classes.text}>
         
-        <div>Ше одна пуста табличка</div>
+        <Dodatok data={highlightedDodatok}></Dodatok>
         </div>
       </div>
 
