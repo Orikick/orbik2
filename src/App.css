@@ -1,0 +1,23 @@
+.App {
+  /* display: grid;
+  grid-template-areas: 
+    "logo navbar"
+    "sidebar content"; */
+   
+ 
+  font-family: 'Montserrat', sans-serif;
+  /* grid-template-rows: 2fr 4fr;
+  grid-auto-columns: 2fr 6fr; */
+}
+
+.header {
+  display: flex;
+  
+}
+
+.main {
+  display: flex;
+
+}
+
+
